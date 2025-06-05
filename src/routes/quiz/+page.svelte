@@ -144,6 +144,10 @@
 
 <style>
   :global(:root, html, body) {
+    padding-top: env(safe-area-inset-top);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
     margin: 0;
     overflow: hidden;
     max-width: 100dvw;
@@ -213,7 +217,6 @@
     left: 0;
     width: 100dvw;
     height: 100dvh;
-    overflow: hidden;
     background: #f2f2f2;
     font-family: "Helvetica Neue", sans-serif;
     display: flex;
