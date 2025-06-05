@@ -46,7 +46,7 @@
 <style>
   p {
     color: white;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   a {
