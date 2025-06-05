@@ -24,7 +24,7 @@
   <div class="intro">
     {#if showFirst}
       <p class="jua" in:fade>
-        오픈채팅방에서 만난 OO 오빠와 연락하게 된지 2주가 됐다. 그동안 오빠는
+        오픈채팅방에서 만난 도훈오빠와 연락하게 된지 2주가 됐다. 그동안 오빠는
         나의 고민을 들어주고 친절하게 대해줬다. 오빠는 25살 이라고 했고
         군인이라고 했다. 직접 만나보지는 않았지만 듬직하고 멋진 오빠라고
         생각한다.
@@ -50,16 +50,17 @@
   }
 
   a {
-    margin: 5rem;
+    margin: 3rem;
     color: white;
 
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   a::after {
     content: " >";
   }
   .screen {
     background-color: #669bbc;
+    max-width: 560px;
     width: 100dw;
     height: 100dvh;
   }

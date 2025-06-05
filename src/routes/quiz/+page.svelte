@@ -166,6 +166,10 @@
     margin-top: auto;
   }
   .choice {
+    -webkit-appearance: none; /* Remove native styling */
+    -webkit-touch-callout: none; /* Prevent callout menu on long press */
+    -webkit-user-select: none; /* Prevent text selection on tap */
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight */
     flex: 1;
     position: relative;
     margin: 1rem;
@@ -175,6 +179,11 @@
     border-radius: 1rem;
     background-color: #ffeb00;
     color: black;
+    text-decoration: none;
+  }
+  .choice:focus {
+    outline: none;
+    box-shadow: none;
   }
 
   .choice:hover {
