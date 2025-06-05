@@ -1,4 +1,4 @@
-import{f as e,b as t}from"../chunks/CWfA1aJ0.js";import{o as q}from"../chunks/CMHNty-U.js";import{r as x,v as z,W as o,a4 as i,I as _,S as p,J as b,K as g,G as F}from"../chunks/BuMjDTXf.js";import{i as v}from"../chunks/CQjmtQiD.js";import{s as G}from"../chunks/BYiKOdjX.js";import{t as f,f as n}from"../chunks/BefKOymF.js";import{b as I}from"../chunks/DD-UWz-E.js";var J=e(`<p class="jua svelte-np8hc5">오픈채팅방에서 만난 OO 오빠와 연락하게 된지 2주가 됐다. 그동안 오빠는
+import{f as e,b as t}from"../chunks/CWfA1aJ0.js";import{o as q}from"../chunks/CMHNty-U.js";import{r as x,v as z,W as o,a4 as i,I as _,S as p,J as b,K as g,G as F}from"../chunks/BuMjDTXf.js";import{i as v}from"../chunks/CQjmtQiD.js";import{s as G}from"../chunks/BYiKOdjX.js";import{t as f,f as n}from"../chunks/BefKOymF.js";import{b as I}from"../chunks/BwRcGhjT.js";var J=e(`<p class="jua svelte-np8hc5">오픈채팅방에서 만난 OO 오빠와 연락하게 된지 2주가 됐다. 그동안 오빠는
         나의 고민을 들어주고 친절하게 대해줬다. 오빠는 25살 이라고 했고
         군인이라고 했다. 직접 만나보지는 않았지만 듬직하고 멋진 오빠라고
         생각한다.</p>`),K=e(`<p class="jua svelte-np8hc5">선생님들은 채팅이 위험하다고 했지만 나에게는 절대 일어나지 않을 일이라고
