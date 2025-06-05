@@ -174,6 +174,7 @@
     border: 0;
     border-radius: 1rem;
     background-color: #ffeb00;
+    color: black;
   }
 
   .choice:hover {
@@ -181,6 +182,7 @@
   }
 
   .choice-label {
+    color: black;
     position: absolute;
     background-color: white;
     border-radius: 2rem;
@@ -193,8 +195,12 @@
     left: -1rem;
   }
   .screen {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100dvw;
     height: 100dvh;
+    overflow: hidden;
     background: #f2f2f2;
     font-family: "Helvetica Neue", sans-serif;
     display: flex;
