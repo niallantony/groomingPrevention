@@ -109,7 +109,7 @@
             "B",
             currentNode.options[1].label,
             currentNode.options[1].next,
-            currentNode.options[0].score,
+            currentNode.options[1].score,
           )}
         </div>
       {/if}
