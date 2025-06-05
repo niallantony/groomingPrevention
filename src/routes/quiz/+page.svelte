@@ -8,6 +8,14 @@
   import { onMount } from "svelte";
 
   let currentId = $state(0);
+  let scaleFactor = $state(1);
+
+  const updateScale = () => {
+    const scaleX = window.innerWidth / 540;
+    const scaleY = window.innerHeight / 960;
+    scaleFactor = Math.min(scaleX, scaleY, 1); // don’t upscale past 1
+    document.documentElement.style.setProperty("--scale-factor", scaleFactor);
+  };
 
   let lastAnswer = $state("");
   let currentNode = $derived(quiz[currentId]);
@@ -19,6 +27,8 @@
   let totalScore = $state(10);
 
   onMount(() => {
+    updateScale();
+    window.addEventListener("resize", updateScale);
     setTimeout(() => {
       showReceived = true;
     }, 600);
@@ -47,77 +57,79 @@
 </script>
 
 <div class="screen">
-  <div class="chat-screen">
-    <div class="chat-header">
-      <Icon width="14px" color="#8a8a8a" icon="weui:back-filled" />
-      <span class="sender">도훈오빠</span>
-      <Icon width="28px" color="#8a8a8a" icon="iconamoon:search-bold" />
-      <Icon
-        width="28px"
-        color="#8a8a8a"
-        icon="iconamoon:menu-burger-horizontal-fill"
-      />
-    </div>
-    <div class="chat-messages">
-      {#if showSent && lastAnswer}
-        <div class="sent-message" in:slide>
-          <SentMessage>{lastAnswer}</SentMessage>
-        </div>
-      {/if}
-      {#if currentNode.imageSent}
-        <div class="sent-message image-message" in:slide>
-          <SentMessage>
-            <img
-              width="128"
-              alt="sent"
-              src={`${base}${currentNode.imageSent}`}
-            />
-          </SentMessage>
-        </div>
-      {/if}
-
-      {#if showReceived && !currentNode.terminus}
-        <div in:slide>
-          <ReceivedMessage>{currentNode.text}</ReceivedMessage>
-        </div>
-
-        {#if currentNode.imageReceived}
-          <div class="received-image image-message" in:slide>
-            <ReceivedMessage>
-              <img
-                width="128"
-                alt="received"
-                src={`${base}${currentNode.imageReceived}`}
-              />
-            </ReceivedMessage>
+  <div class="chat-screen-wrapper">
+    <div class="chat-screen">
+      <div class="chat-header">
+        <Icon width="14px" color="#8a8a8a" icon="weui:back-filled" />
+        <span class="sender">도훈오빠</span>
+        <Icon width="28px" color="#8a8a8a" icon="iconamoon:search-bold" />
+        <Icon
+          width="28px"
+          color="#8a8a8a"
+          icon="iconamoon:menu-burger-horizontal-fill"
+        />
+      </div>
+      <div class="chat-messages">
+        {#if showSent && lastAnswer}
+          <div class="sent-message" in:slide>
+            <SentMessage>{lastAnswer}</SentMessage>
           </div>
         {/if}
-      {:else if showReceived && currentNode.terminus}
-        <div in:fade>
-          {@render endScreen()}
+        {#if currentNode.imageSent}
+          <div class="sent-message image-message" in:slide>
+            <SentMessage>
+              <img
+                width="128"
+                alt="sent"
+                src={`${base}${currentNode.imageSent}`}
+              />
+            </SentMessage>
+          </div>
+        {/if}
+
+        {#if showReceived && !currentNode.terminus}
+          <div in:slide>
+            <ReceivedMessage>{currentNode.text}</ReceivedMessage>
+          </div>
+
+          {#if currentNode.imageReceived}
+            <div class="received-image image-message" in:slide>
+              <ReceivedMessage>
+                <img
+                  width="128"
+                  alt="received"
+                  src={`${base}${currentNode.imageReceived}`}
+                />
+              </ReceivedMessage>
+            </div>
+          {/if}
+        {:else if showReceived && currentNode.terminus}
+          <div in:fade>
+            {@render endScreen()}
+          </div>
+        {/if}
+        {#if showOptions && currentNode.options}
+          <div in:fade class="choice-box">
+            {@render choice(
+              "A",
+              currentNode.options[0].label,
+              currentNode.options[0].next,
+              currentNode.options[0].score,
+            )}
+            {@render choice(
+              "B",
+              currentNode.options[1].label,
+              currentNode.options[1].next,
+              currentNode.options[1].score,
+            )}
+          </div>
+        {/if}
+      </div>
+      <div class="chat-input">
+        <div class="dummy-input">
+          <Icon width="18px" icon="heroicons:hashtag-16-solid" />
+          <Icon width="18px" icon="ph:smiley-sticker-bold" />
         </div>
-      {/if}
-      {#if showOptions && currentNode.options}
-        <div in:fade class="choice-box">
-          {@render choice(
-            "A",
-            currentNode.options[0].label,
-            currentNode.options[0].next,
-            currentNode.options[0].score,
-          )}
-          {@render choice(
-            "B",
-            currentNode.options[1].label,
-            currentNode.options[1].next,
-            currentNode.options[1].score,
-          )}
-        </div>
-      {/if}
-    </div>
-    <div class="chat-input">
-      <div class="dummy-input">
-        <Icon width="18px" icon="heroicons:hashtag-16-solid" />
-        <Icon width="18px" icon="ph:smiley-sticker-bold" />
       </div>
     </div>
   </div>
@@ -130,7 +142,7 @@
         {currentNode.text}
       </p>
       <span class="score">점수: {totalScore}</span>
-      <a href={base}>돌아가기</a>
+      <a href={`${base}/`}>돌아가기</a>
     </div>
   </div>
 {/snippet}
@@ -153,6 +165,14 @@
     max-width: 100dvw;
     max-height: 100dvh;
   }
+  .chat-screen-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100dvw;
+    height: 100dvh;
+    overflow: hidden;
+  }
   .sent-message {
     width: 100%;
     display: flex;
@@ -160,6 +180,8 @@
   }
   .image-message {
     margin-top: -26px;
+  }
+  .image-message.received-image {
     width: fit-content;
   }
   .received-image img {
@@ -285,6 +307,8 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    transform-origin: center center;
+    transform: scale(var(--scale-factor));
   }
 
   .end-text {
