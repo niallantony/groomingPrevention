@@ -2,6 +2,7 @@
   import Icon from "@iconify/svelte";
   import SentMessage from "./sentMessage.svelte";
   import ReceivedMessage from "./receivedMessage.svelte";
+  import { base } from "$app/paths";
   import { quiz } from "$lib/quizNodes";
   import { slide, fade } from "svelte/transition";
   import { onMount } from "svelte";
@@ -66,7 +67,11 @@
       {#if currentNode.imageSent}
         <div class="sent-message image-message" in:slide>
           <SentMessage>
-            <img width="128" alt="sent" src={currentNode.imageSent} />
+            <img
+              width="128"
+              alt="sent"
+              src={`${base}${currentNode.imageSent}`}
+            />
           </SentMessage>
         </div>
       {/if}
@@ -79,7 +84,11 @@
         {#if currentNode.imageReceived}
           <div class="received-image image-message" in:slide>
             <ReceivedMessage>
-              <img width="128" alt="received" src={currentNode.imageReceived} />
+              <img
+                width="128"
+                alt="received"
+                src={`${base}${currentNode.imageReceived}`}
+              />
             </ReceivedMessage>
           </div>
         {/if}
@@ -121,7 +130,7 @@
         {currentNode.text}
       </p>
       <span class="score">점수: {totalScore}</span>
-      <a href="/">돌아가기</a>
+      <a href={base}>돌아가기</a>
     </div>
   </div>
 {/snippet}

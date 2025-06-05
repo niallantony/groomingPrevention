@@ -1,5 +1,6 @@
 <script>
   import Icon from "@iconify/svelte";
+  import { base } from "$app/paths";
 </script>
 
 <div class="splash-screen">
@@ -11,7 +12,7 @@
     </div>
     <h1 class="third bubble with-tail jua">퀴즈</h1>
   </div>
-  <a href="/start" class="jua">시작하기</a>
+  <a href={`${base}/start`} class="jua">시작하기</a>
 </div>
 
 <style>

@@ -1,5 +1,0 @@
-import{f as e,b as r}from"../chunks/G1M4xl3Z.js";import{o as x}from"../chunks/C8dKS5oA.js";import{r as z,v as F,V as o,a3 as i,G as _,R as v,I as b,J as g}from"../chunks/B9hxMcaM.js";import{i as p}from"../chunks/TQXW7U7R.js";import{t as n,f as l}from"../chunks/yzJ0jfMl.js";var G=e(`<p class="jua svelte-np8hc5">오픈채팅방에서 만난 OO 오빠와 연락하게 된지 2주가 됐다. 그동안 오빠는
-        나의 고민을 들어주고 친절하게 대해줬다. 오빠는 25살 이라고 했고
-        군인이라고 했다. 직접 만나보지는 않았지만 듬직하고 멋진 오빠라고
-        생각한다.</p>`),I=e(`<p class="jua svelte-np8hc5">선생님들은 채팅이 위험하다고 했지만 나에게는 절대 일어나지 않을 일이라고
-        생각한다.</p>`),J=e('<a href="/quiz" class="jua svelte-np8hc5">다음</a>'),L=e('<div class="screen svelte-np8hc5"><div class="intro svelte-np8hc5"><!> <!> <!></div></div>');function A(j,w){z(w,!0);let f=i(!1),c=i(!1),m=i(!1);x(()=>{o(f,!0),setTimeout(()=>{o(c,!0)},1500),setTimeout(()=>{o(m,!0)},3e3)});var t=L(),d=_(t),u=_(d);{var k=a=>{var s=G();n(1,s,()=>l),r(a,s)};p(u,a=>{v(f)&&a(k)})}var h=b(u,2);{var O=a=>{var s=I();n(1,s,()=>l),r(a,s)};p(h,a=>{v(c)&&a(O)})}var T=b(h,2);{var q=a=>{var s=J();n(1,s,()=>l),r(a,s)};p(T,a=>{v(m)&&a(q)})}g(d),g(t),r(j,t),F()}export{A as component};

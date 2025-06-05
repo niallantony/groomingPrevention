@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
+  import { base } from "$app/paths";
 
   let showFirst = $state(false);
   let showSecond = $state(false);
@@ -37,7 +38,7 @@
     {/if}
 
     {#if showLink}
-      <a href="/quiz" class="jua" in:fade> 다음 </a>
+      <a href={`${base}/quiz`} class="jua" in:fade> 다음 </a>
     {/if}
   </div>
 </div>
