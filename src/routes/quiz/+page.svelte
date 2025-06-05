@@ -307,8 +307,6 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    transform-origin: center center;
-    transform: scale(var(--scale-factor));
   }
 
   .end-text {
@@ -368,6 +366,13 @@
     }
     .choice {
       font-size: 1.2rem;
+    }
+  }
+
+  @media (min-width: 600px) {
+    .chat-screen {
+      transform-origin: center center;
+      transform: scale(var(--scale-factor));
     }
   }
 </style>
