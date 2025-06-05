@@ -15,6 +15,8 @@
   let showReceived = $state(false);
   let showOptions = $state(false);
 
+  let totalScore = $state(10);
+
   onMount(() => {
     setTimeout(() => {
       showReceived = true;
@@ -24,14 +26,16 @@
       showOptions = true;
     }, 1200);
   });
-  const selectAnswer = (text: string, next: number): void => {
+  const selectAnswer = (text: string, next: number, score: number): void => {
     lastAnswer = text;
+    currentId = next;
     showSent = showReceived = showOptions = false;
 
     showSent = true;
 
+    totalScore += score;
+
     setTimeout(() => {
-      currentId = next;
       showReceived = true;
     }, 1000);
 
@@ -59,10 +63,29 @@
           <SentMessage>{lastAnswer}</SentMessage>
         </div>
       {/if}
+      {#if currentNode.imageSent}
+        <div class="sent-message image-message" in:slide>
+          <SentMessage>
+            <img width="128" alt="sent" src={currentNode.imageSent} />
+          </SentMessage>
+        </div>
+      {/if}
 
-      {#if showReceived}
+      {#if showReceived && !currentNode.terminus}
         <div in:slide>
           <ReceivedMessage>{currentNode.text}</ReceivedMessage>
+        </div>
+
+        {#if currentNode.imageReceived}
+          <div class="received-image image-message" in:slide>
+            <ReceivedMessage>
+              <img width="128" alt="received" src={currentNode.imageReceived} />
+            </ReceivedMessage>
+          </div>
+        {/if}
+      {:else if showReceived && currentNode.terminus}
+        <div in:fade>
+          {@render endScreen()}
         </div>
       {/if}
       {#if showOptions && currentNode.options}
@@ -71,11 +94,13 @@
             "A",
             currentNode.options[0].label,
             currentNode.options[0].next,
+            currentNode.options[0].score,
           )}
           {@render choice(
             "B",
             currentNode.options[1].label,
             currentNode.options[1].next,
+            currentNode.options[0].score,
           )}
         </div>
       {/if}
@@ -89,21 +114,43 @@
   </div>
 </div>
 
-{#snippet choice(label: string, choice: string, next: number)}
-  <button class="choice" onclick={() => selectAnswer(choice, next)}>
+{#snippet endScreen()}
+  <div class="end-screen-overlay" in:fade>
+    <div class="end-screen-content">
+      <p class="end-text">
+        {currentNode.text}
+      </p>
+      <span class="score">점수: {totalScore}</span>
+      <a href="/">돌아가기</a>
+    </div>
+  </div>
+{/snippet}
+
+{#snippet choice(label: string, choice: string, next: number, score: number)}
+  <button class="choice" onclick={() => selectAnswer(choice, next, score)}>
     {choice}
     <div class="choice-label">{label}</div>
   </button>
 {/snippet}
 
 <style>
-  :global(body) {
+  :global(:root, html, body) {
     margin: 0;
+    overflow: hidden;
+    max-width: 100dvw;
+    max-height: 100dvh;
   }
   .sent-message {
     width: 100%;
     display: flex;
     justify-content: flex-end;
+  }
+  .image-message {
+    margin-top: -26px;
+    width: fit-content;
+  }
+  .received-image img {
+    margin-right: 1rem;
   }
   .choice-box {
     display: flex;
@@ -209,6 +256,52 @@
     overflow: hidden;
   }
 
+  .end-text {
+    font-family: "Jua", sans-serif;
+    font-size: 1.5rem;
+  }
+  .end-screen-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 30, 30, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .end-screen-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    width: 80%;
+    max-width: 300px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .end-screen-content .score {
+    font-family: "Jua", sans-serif;
+    display: block;
+    font-size: 2rem;
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+
+  .end-screen-content a {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.5rem 1rem;
+    background: black;
+    color: white;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+
   /* ============================
    MOBILE
 ============================ */
@@ -219,7 +312,7 @@
       border: 0;
     }
     .choice {
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
   }
 </style>

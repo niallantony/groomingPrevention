@@ -15,8 +15,11 @@
 </div>
 
 <style>
-  :global(body) {
+  :global(:root, html, body) {
     margin: 0;
+    overflow: hidden;
+    max-width: 100dvw;
+    max-height: 100dvh;
   }
   .jua {
     font-family: "Jua", sans-serif;
@@ -47,12 +50,12 @@
   .splash-screen {
     height: 100dvh;
     background-color: #ffdd2d;
-    width: 100%;
+    max-width: 100dvw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 5rem 1rem 0;
+    padding: 2rem 1rem 0;
   }
 
   .header {
@@ -81,6 +84,8 @@
     height: fit-content;
     font-family: "Jua", sans-serif;
     margin: 1rem;
+    min-width: fit-content;
+    white-space: nowrap;
   }
 
   /* Tail */
@@ -154,7 +159,7 @@
     }
 
     .third {
-      transform: translate(6rem, -6.5rem);
+      transform: translate(7.5rem, -6.5rem);
       z-index: 10;
     }
   }

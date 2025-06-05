@@ -45,7 +45,7 @@ export const quiz: QuizNode[] = [
         score: 0,
       },
       {
-        label: "아니야! 못 믿는 건 아니구 조심스러워 그런거야! 기분 풀어 ㅜㅜ ",
+        label: "못 믿는건 아니지만 조금 조심스러워서 그런거야! 기분 풀어ㅜㅜ ",
         next: 6,
         score: 10,
       },
@@ -202,7 +202,8 @@ export const quiz: QuizNode[] = [
         next: 16,
         score: 0,
       },
-    ]
+    ],
+    imageReceived: "/dohun.jpg",
   },
   {
     id: 12,
@@ -219,7 +220,8 @@ export const quiz: QuizNode[] = [
         next: 18,
         score: 10,
       },
-    ]
+    ],
+    imageSent: "/facepic.png"
   },
   {
     id: 13,
@@ -287,7 +289,8 @@ export const quiz: QuizNode[] = [
         next: 21,
         score: 10,
       }
-    ]
+    ],
+    imageReceived: "/coupon.jpg",
   },
   {
     id: 17,
@@ -304,7 +307,8 @@ export const quiz: QuizNode[] = [
         next: 23,
         score: 10,
       }
-    ]
+    ],
+    imageSent: "/bodypic.jpg"
   },
   {
     id: 18,
@@ -338,7 +342,8 @@ export const quiz: QuizNode[] = [
         next: 23,
         score: 10,
       }
-    ]
+    ],
+    imageSent: "/facepic.png"
   },
   {
     id: 20,
