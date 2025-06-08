@@ -178,7 +178,7 @@ export const quiz: QuizNode[] = [
     options: [
       {
         label: "응 그럼! 당연하지 절대로 아무한테 이야기 안해! ",
-        next: 16,
+        next: 39,
         score: 0,
       },
       {
@@ -278,7 +278,7 @@ export const quiz: QuizNode[] = [
   {
     id: 16,
     terminus: false,
-    text: "너 너무 예쁘다 ㅜㅜ 사진까지 보내주고 나를 믿어줘서 고마워(선물하기)",
+    text: "너 너무 예쁘다 ㅜㅜ 사진까지 보내주고 나를 믿어줘서 고마워",
     options: [
       {
         label: "우와 고마워 ㅠㅠ 나 초코라떼 진짜 좋아해~! 난 줄게 없는데 늘 받기만 하네 ",
@@ -291,6 +291,7 @@ export const quiz: QuizNode[] = [
         score: 10,
       }
     ],
+    imageSent: "/facepic.jpg",
     imageReceived: "/coupon.jpg",
   },
   {
@@ -519,7 +520,7 @@ export const quiz: QuizNode[] = [
   {
     id: 30,
     terminus: false,
-    text: "우리 비밀도 야기하는 사이니까 그정도는 괜찮을 거 라고 생각했는데.. 조금 실망이다 자꾸 나한테 벽을 치는 것 같아서... 우리 관계가 이것 밖에 안되나.. 아님 이런 이야기하는게 싫으면 한번 내가 어떤 사람인지 만나볼래? ",
+    text: "우리 비밀도 이야기하는 사이니까 그정도는 괜찮을 거 라고 생각했는데.. 조금 실망이다 자꾸 나한테 벽을 치는 것 같아서... 우리 관계가 이것 밖에 안되나.. 아님 이런 이야기하는게 싫으면 한번 내가 어떤 사람인지 만나볼래? ",
     options: [
       {
         label: "그럼 엄마한테 한번 여쭤볼게.. ",
@@ -633,5 +634,23 @@ export const quiz: QuizNode[] = [
     id: 38,
     terminus: true,
     text: "채팅으로 만난 상대와  만나는 것은 위험 할 수 있습니다. 만일, 만나게 된다면 선생님, 부모님 등 주변 사람들에게 알려야 합니다. "
+  },
+  {
+    id: 39,
+    terminus: false,
+    text: "너 너무 예쁘다 ㅜㅜ 사진까지 보내주고 나를 믿어줘서 고마워",
+    options: [
+      {
+        label: "우와 고마워 ㅠㅠ 나 초코라떼 진짜 좋아해~! 난 줄게 없는데 늘 받기만 하네 ",
+        next: 21,
+        score: 0,
+      },
+      {
+        label: "선물고마운데 이런거 받아도 되나..? ㅠㅠ 안줘도 돼 오빠 ",
+        next: 21,
+        score: 10,
+      }
+    ],
+    imageReceived: "/coupon.jpg",
   },
 ]
