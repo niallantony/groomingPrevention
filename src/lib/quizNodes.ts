@@ -21,7 +21,8 @@ export const quiz: QuizNode[] = [
   {
     id: 1,
     terminus: false,
-    text: "정말 힘들었겠다. 근데 이런 얘기는 나한테만 해야 되는 거 알지? 다른 사람들은 이런 얘기 들으면 좀 싫어할 수도 있을 것 같아. 나는 너를 믿으니까 안 그러지만. ", options: [
+    text: "정말 힘들었겠다. 근데 이런 얘기는 나한테만 해야 되는 거 알지? 다른 사람들은 이런 얘기 들으면 좀 싫어할 수도 있을 것 같아. 나는 너를 믿으니까 안 그러지만. ",
+    options: [
       {
         label: "맞아 ㅠㅠ 이런 얘기 들어줄 사람은 오빠밖에 없어.. 내 친구들이나 부모님은 이야기를 안 들어줘 ",
         next: 3,
@@ -277,7 +278,7 @@ export const quiz: QuizNode[] = [
   {
     id: 16,
     terminus: false,
-    text: "우리 진짜 이런 이야기까지 나눌 수 있는 사이가 됐다니 너무 감동이야 나를 믿어줘서 고마워 (선물하기) ",
+    text: "너 너무 예쁘다 ㅜㅜ 사진까지 보내주고 나를 믿어줘서 고마워(선물하기)",
     options: [
       {
         label: "우와 고마워 ㅠㅠ 나 초코라떼 진짜 좋아해~! 난 줄게 없는데 늘 받기만 하네 ",
@@ -343,7 +344,7 @@ export const quiz: QuizNode[] = [
         score: 10,
       }
     ],
-    imageSent: ""
+    imageSent: "/facepic.png"
   },
   {
     id: 20,
@@ -365,7 +366,7 @@ export const quiz: QuizNode[] = [
   {
     id: 21,
     terminus: false,
-    text: "아니야! 그렇게 비싼것도 아닌데 뭐 받아도 돼! 그런데 나 궁금한게 있는데너 키스해본적 있어? ",
+    text: "아니야! 그렇게 비싼것도 아닌데 뭐 받아도 돼! 그런데 나 궁금한게 있는데 너 키스해본적 있어? ",
     options: [
       {
         label: "키스..? 그건 왜? 드라마에서 본적은있어.. ",
