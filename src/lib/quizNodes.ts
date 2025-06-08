@@ -291,7 +291,7 @@ export const quiz: QuizNode[] = [
         score: 10,
       }
     ],
-    imageSent: "/facepic.jpg",
+    imageSent: "/facepic.png",
     imageReceived: "/coupon.jpg",
   },
   {
