@@ -278,7 +278,7 @@ export const quiz: QuizNode[] = [
   {
     id: 16,
     terminus: false,
-    text: "너 너무 예쁘다 ㅜㅜ 사진까지 보내주고 나를 믿어줘서 고마워",
+    text: "우리 진짜 이런 이야기까지 나눌 수 있는 사이가 됐더니 너무 감동이야 나를 믿어줘서 고마워",
     options: [
       {
         label: "우와 고마워 ㅠㅠ 나 초코라떼 진짜 좋아해~! 난 줄게 없는데 늘 받기만 하네 ",
@@ -291,7 +291,6 @@ export const quiz: QuizNode[] = [
         score: 10,
       }
     ],
-    imageSent: "/facepic.png",
     imageReceived: "/coupon.jpg",
   },
   {
@@ -638,7 +637,7 @@ export const quiz: QuizNode[] = [
   {
     id: 39,
     terminus: false,
-    text: "너 너무 예쁘다 ㅜㅜ 사진까지 보내주고 나를 믿어줘서 고마워",
+    text: "우리 진짜 이런 이야기까지 나눌 수 있는 사이가 됐더니 너무 감동이야 나를 믿어줘서 고마워",
     options: [
       {
         label: "우와 고마워 ㅠㅠ 나 초코라떼 진짜 좋아해~! 난 줄게 없는데 늘 받기만 하네 ",
